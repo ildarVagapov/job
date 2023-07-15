@@ -3,13 +3,13 @@ const REMOVE_FILTER = 'REMOVE_FILTER'
 const CLEAR_FILTER = 'CLEAR_FILTER'
 
 let initialState = []
-// let initialState = [{
-// 	role: "Frontend",
-// }]
 
 export const reducerFilter = (state = initialState, action) => {
 	switch (action.type) {
 		case ADD_FILTER: {
+			if (state.includes(action.filter)) {
+				return state
+			}
 			return [...state, action.filter]
 		}
 		case REMOVE_FILTER: {

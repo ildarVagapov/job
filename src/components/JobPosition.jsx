@@ -69,7 +69,7 @@ const JobPosition = ({
 					))}
 				</Stack>
 			</div>
-		</Card>
+		</Card >
 	)
 }
 
