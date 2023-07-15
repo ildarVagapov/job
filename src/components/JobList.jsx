@@ -1,14 +1,20 @@
-import data from '../mock/data.json';
+import { useDispatch, useSelector } from 'react-redux';
 import { JobPosition } from './JobPosition';
+import { addFilterAC } from 'redux/reducers/reducerFilter';
 
 const JobList = () => {
-  return (
-    <div className='job-list'>
-      {data.map(item => (
-        <JobPosition key={item.id} {...item} />
-      ))}
-    </div>
-  )
+	const data = useSelector((state) => state.position)
+	const dispatch = useDispatch()
+	const handleAddFilter = (filter) => {
+		dispatch(addFilterAC(filter))
+	}
+	return (
+		<div className='job-list'>
+			{data.map(item => (
+				<JobPosition handleAddFilter={handleAddFilter} key={item.id} {...item} />
+			))}
+		</div>
+	)
 }
 
-export {JobList};
+export { JobList };
