@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { JobPosition } from './JobPosition';
-import { addFilterAC } from 'redux/reducers/reducerFilter';
+import { addFilterAC } from 'features/filter/filterSlice';
 
 const JobList = () => {
 	const data = useSelector((state) => state.position)
